@@ -1,0 +1,1 @@
+flet pack main.py -n pokedeskbuddy --add-data "assets:assets"

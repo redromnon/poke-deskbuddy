@@ -1,3 +1,6 @@
 /venv
 /extras
 /tk.py
+*.spec
+/build
+/dist

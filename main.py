@@ -1,8 +1,15 @@
-import flet as ft, time
+import flet as ft, time, sys, os
 from PIL import Image
 
 def main(page: ft.Page):
     
+    #Necessary for relative path to assets
+    try:
+        os.chdir(sys._MEIPASS)
+        print('Running from executable...')
+    except:
+        pass
+
     pokemon_gif = "pikachu.gif"
     pokemon_pil = Image.open(f"assets/{pokemon_gif}")
     ball_img = "poke-ball.png"
