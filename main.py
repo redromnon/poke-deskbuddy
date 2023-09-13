@@ -99,13 +99,35 @@ def main(page: ft.Page):
         page.update()
 
 
+    def on_focused(window_event):
+
+        if window_event.data == "focus":
+        
+            background_container.border = ft.border.all(2, ft.colors.WHITE)
+            background_container.bgcolor = "#262626"
+        else:
+            background_container.border = None
+            background_container.bgcolor = None
+
+        page.update()
+        
+
     pokemon = ft.Image(
-            src=ball_img, 
-            fit=ft.ImageFit.CONTAIN, animate_opacity=500, opacity=0, 
-            width=pokemon_pil.width*1.5, 
-            height=pokemon_pil.height*1.5,
-            data={'iswithdrawn':True}
-        )
+        src=ball_img, 
+        fit=ft.ImageFit.CONTAIN, animate_opacity=500, opacity=0, 
+        width=pokemon_pil.width*1.5, 
+        height=pokemon_pil.height*1.5,
+        data={'iswithdrawn':True}
+    )
+    
+    background_container =  ft.Container(
+        content=pokemon,
+        on_long_press=run,
+        left=0,
+        border_radius=5,
+        border=ft.border.all(2, ft.colors.WHITE),
+        bgcolor="#262626"
+    )
     
     exit_btn = ft.IconButton(
         icon=ft.icons.CLOSE, 
@@ -119,11 +141,7 @@ def main(page: ft.Page):
 
     app_content = ft.Stack(
         [
-            ft.Container(
-                content=pokemon,
-                on_long_press=run,
-                left=0
-            ),
+            background_container,
             ft.Container(
                 content=exit_btn,
                 right=0
@@ -146,5 +164,6 @@ def main(page: ft.Page):
     page.update()
 
     run()
+    page.on_window_event = on_focused
 
 ft.app(target=main, assets_dir="assets", name="Poke-DeskBuddy")
