@@ -14,7 +14,13 @@ The assets images are taken from [PokeAPI](https://pokeapi.co/).
 Sometimes, the app's window occupies a larger area and can get in the way when you click on things. Closing and re-launching the app should fix it.
 
 ## Development and Building
-- Clone this repository
-- Create a virtual environment (optional)
-- Install the dependencies `pip install -r requirements.txt`
-- Run `build.sh` or run the script's command manually
+1. Clone this repository
+2. Create a virtual environment (optional)
+3. Install the dependencies `pip install -r requirements.txt`
+4. Run `build.sh` or run the script's command manually
+
+## Contributing
+1. Fork this repository
+2. Create a new branch
+3. Do your thing
+4. Create a Pull Request
