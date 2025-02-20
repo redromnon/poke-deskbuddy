@@ -15,18 +15,18 @@ def main(page: ft.Page):
     ball_img = "poke-ball.png"
     delay = 0.5
 
-    page.window_visible = False
-    page.window_always_on_top = True
-    page.window_width = (pokemon_pil.width*1.5)+120
-    page.window_height = (pokemon_pil.height*1.5)+120
-    page.window_title_bar_hidden = True
-    page.window_bgcolor = ft.colors.TRANSPARENT
+    #page.window.visible = False
+    page.window.always_on_top = True
+    page.window.width = (pokemon_pil.width*1.5)+120
+    page.window.height = (pokemon_pil.height*1.5)+120
+    #page.window.height = 100
+    #page.window.width = 100
+    page.window.bgcolor = ft.colors.TRANSPARENT
     page.bgcolor = ft.colors.TRANSPARENT
-    page.window_title_bar_hidden = True
-    page.window_frameless = True
-    page.window_maximizable = False
-    page.window_skip_task_bar = True
-    page.update()
+    page.window.title_bar_hidden = True
+    page.window.frameless = True
+    page.window.maximizable = False
+    #page.window.skip_task_bar = True
 
     def launch_pokemon():
 
@@ -86,7 +86,7 @@ def main(page: ft.Page):
             withdraw_pokemon()
 
         time.sleep(delay)
-        page.window_close()
+        page.window.close()
 
 
     def on_hover(is_hovered):
@@ -147,9 +147,8 @@ def main(page: ft.Page):
                 right=0
             ),
         ],
-        width=page.window_width, height=page.window_height
+        width=100, height=100
     )
-    
     page.add(
         ft.WindowDragArea(
             content=ft.Container(
@@ -160,10 +159,10 @@ def main(page: ft.Page):
     )
 
     #A hack to apply and respect the window properties
-    page.window_visible = True
+    page.window.visible = True
     page.update()
 
     run()
-    page.on_window_event = on_focused
+    page.window.on_event = on_focused
 
 ft.app(target=main, assets_dir="assets", name="Poke-DeskBuddy")
