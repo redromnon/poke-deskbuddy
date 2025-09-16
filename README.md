@@ -10,6 +10,9 @@ https://github.com/redromnon/poke-deskbuddy/assets/74495920/85164b96-2b58-4d21-a
 
 The assets images are taken from [PokeAPI](https://pokeapi.co/).
 
+## Download
+Head to [Releases](https://github.com/redromnon/poke-deskbuddy/releases) and download the latest binary.
+
 ## Issue
 Sometimes, the app's window occupies a larger area and can get in the way when you click on things. Closing and re-launching the app should fix it.
 
