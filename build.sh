@@ -1,1 +1,1 @@
-flet pack main.py -n pokedeskbuddy --add-data "assets:assets"
+pyinstaller main.py --name pokedeskbuddy --add-data "assets:assets" --strip --onefile
