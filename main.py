@@ -16,11 +16,12 @@ def main(page: ft.Page):
     delay = 0.5
 
     #page.window.visible = False
+    page.vertical_alignment = ft.MainAxisAlignment.CENTER
+    page.horizontal_alignment = ft.CrossAxisAlignment.CENTER
     page.window.always_on_top = True
-    page.window.width = (pokemon_pil.width*1.5)+120
-    page.window.height = (pokemon_pil.height*1.5)+120
-    #page.window.height = 100
-    #page.window.width = 100
+    page.window.width = 150
+    page.window.height = 150
+
     page.window.bgcolor = ft.colors.TRANSPARENT
     page.bgcolor = ft.colors.TRANSPARENT
     page.window.title_bar_hidden = True
@@ -100,7 +101,6 @@ def main(page: ft.Page):
 
 
     def on_focused(window_event):
-
         if window_event.data == "focus":
         
             background_container.border = ft.border.all(2, ft.colors.WHITE)
@@ -115,8 +115,8 @@ def main(page: ft.Page):
     pokemon = ft.Image(
         src=ball_img, 
         fit=ft.ImageFit.CONTAIN, animate_opacity=500, opacity=0, 
-        width=pokemon_pil.width*1.5, 
-        height=pokemon_pil.height*1.5,
+        width=80, 
+        height=80,
         data={'iswithdrawn':True}
     )
     
@@ -125,8 +125,9 @@ def main(page: ft.Page):
         on_long_press=run,
         left=0,
         border_radius=5,
-        border=ft.border.all(2, ft.colors.WHITE),
-        bgcolor="#262626"
+        image_fit=ft.ImageFit.CONTAIN
+        # border=ft.border.all(2, ft.colors.WHITE),
+        # bgcolor="#262626"
     )
     
     exit_btn = ft.IconButton(
@@ -147,14 +148,14 @@ def main(page: ft.Page):
                 right=0
             ),
         ],
-        width=100, height=100
+        height=100, width=100
     )
     page.add(
         ft.WindowDragArea(
             content=ft.Container(
                 content=app_content,
                 on_hover=on_hover
-            )
+            ),
         )
     )
 
@@ -163,6 +164,6 @@ def main(page: ft.Page):
     page.update()
 
     run()
-    page.window.on_event = on_focused
+    #page.window.on_event = on_focused
 
 ft.app(target=main, assets_dir="assets", name="Poke-DeskBuddy")
